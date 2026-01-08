@@ -31,7 +31,7 @@ SMTP_HOST=smtp.gmail.com
 SMTP_PORT=587
 SMTP_USER=your-email@gmail.com
 SMTP_PASS=your-password
-SMTP_FROM=noreply@tamilfinanceblog.com
+SMTP_FROM=noreply@tamilnidhi.com
 ```
 
 ## Installation

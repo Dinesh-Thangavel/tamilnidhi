@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next'
 import { getAllFinanceSlugs, getAllSchemesSlugs } from '@/lib/content'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://tamilfinanceblog.com'
+  const baseUrl = 'https://tamilnidhi.com'
   
   const financeArticles = getAllFinanceSlugs().map((slug) => ({
     url: `${baseUrl}/finance/${slug}`,
