@@ -26,9 +26,12 @@ const additionalRoutes = [
   ...getAllSchemesSlugs(),
 ]
 
+// Get site URL from environment variable, fallback to tamilnidhi.com
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://tamilnidhi.com'
+
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: 'https://tamilnidhi.com',
+  siteUrl: siteUrl,
   generateRobotsTxt: true,
   generateIndexSitemap: false,
   additionalPaths: async (config) => {
@@ -60,7 +63,7 @@ module.exports = {
       },
     ],
     additionalSitemaps: [
-      'https://tamilnidhi.com/sitemap.xml',
+      `${siteUrl}/sitemap.xml`,
     ],
   },
   transform: async (config, path) => {

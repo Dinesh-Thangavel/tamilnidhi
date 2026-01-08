@@ -6,7 +6,8 @@
 const fs = require('fs')
 const path = require('path')
 
-const siteUrl = 'https://tamilnidhi.com'
+// Get site URL from environment variable, fallback to tamilnidhi.com
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://tamilnidhi.com'
 const contentDir = path.join(process.cwd(), 'content')
 
 // Get all article slugs
