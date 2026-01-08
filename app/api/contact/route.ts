@@ -136,7 +136,7 @@ ${message}
       
       try {
         await transporter.sendMail({
-          from: process.env.SMTP_FROM || process.env.GMAIL_USER || 'noreply@tamilfinanceblog.com',
+          from: process.env.SMTP_FROM || process.env.GMAIL_USER || 'noreply@tamilnidhi.com',
           to: RECIPIENT_EMAIL,
           replyTo: email,
           subject: emailSubject,

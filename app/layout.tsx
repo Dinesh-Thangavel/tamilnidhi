@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'ta_IN',
-    url: 'https://tamilfinanceblog.com',
+    url: 'https://tamilnidhi.com',
     siteName: 'Tamil Finance Blog',
     title: 'தமிழ் நிதி கல்வி | Tamil Personal Finance & Government Schemes',
     description: 'தமிழில் நிதி கல்வி மற்றும் அரசு திட்டங்கள் பற்றிய தகவல்கள்.',
