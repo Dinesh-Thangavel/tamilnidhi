@@ -1,0 +1,68 @@
+import { MetadataRoute } from 'next'
+import { getAllFinanceSlugs, getAllSchemesSlugs } from '@/lib/content'
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const baseUrl = 'https://tamilfinanceblog.com'
+  
+  const financeArticles = getAllFinanceSlugs().map((slug) => ({
+    url: `${baseUrl}/finance/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+  }))
+  
+  const schemesArticles = getAllSchemesSlugs().map((slug) => ({
+    url: `${baseUrl}/schemes/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+  }))
+  
+  return [
+    {
+      url: baseUrl,
+      lastModified: new Date(),
+      changeFrequency: 'daily',
+      priority: 1,
+    },
+    {
+      url: `${baseUrl}/finance`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/schemes`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/about`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/contact`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/privacy-policy`,
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.5,
+    },
+    {
+      url: `${baseUrl}/disclaimer`,
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.5,
+    },
+    ...financeArticles,
+    ...schemesArticles,
+  ]
+}
+

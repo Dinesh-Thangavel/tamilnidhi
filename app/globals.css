@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-tamil antialiased bg-gradient-to-br from-gray-50 via-blue-50/30 to-gray-50;
+  }
+  
+  * {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Fix for Tamil text rendering - prevent word breaking */
+  html[lang="ta"],
+  html[lang="ta"] body,
+  html[lang="ta"] h1,
+  html[lang="ta"] h2,
+  html[lang="ta"] h3,
+  html[lang="ta"] h4,
+  html[lang="ta"] h5,
+  html[lang="ta"] h6,
+  html[lang="ta"] p,
+  html[lang="ta"] span,
+  html[lang="ta"] div,
+  html[lang="ta"] a,
+  html[lang="ta"] li {
+    word-break: keep-all !important;
+    overflow-wrap: normal !important;
+    word-wrap: normal !important;
+    hyphens: none !important;
+  }
+  
+  /* Tamil text should not break words */
+  .tamil-text,
+  [lang="ta"],
+  [lang="ta"] * {
+    word-break: keep-all !important;
+    overflow-wrap: normal !important;
+    word-wrap: normal !important;
+    hyphens: none !important;
+  }
+}
+
+@layer components {
+  .gradient-text {
+    @apply bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 hover:scale-[1.02] hover:shadow-xl;
+  }
+  
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold mb-2 relative inline-block;
+  }
+  
+  .section-title::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-1/3 h-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full;
+  }
+}
+
+@layer utilities {
+  .prose-tamil {
+    @apply max-w-none;
+  }
+  
+  .prose-tamil h1 {
+    @apply text-3xl md:text-4xl font-bold text-gray-900 mb-6 mt-8;
+  }
+  
+  .prose-tamil h2 {
+    @apply text-2xl md:text-3xl font-semibold text-gray-900 mb-4 mt-8;
+  }
+  
+  .prose-tamil h3 {
+    @apply text-xl md:text-2xl font-semibold text-gray-900 mb-3 mt-6;
+  }
+  
+  .prose-tamil p {
+    @apply text-gray-700 leading-relaxed mb-6 text-lg;
+    line-height: 1.8;
+    overflow: visible;
+    text-overflow: unset;
+    word-break: keep-all;
+    overflow-wrap: normal;
+    word-wrap: normal;
+    hyphens: none;
+  }
+  
+  .prose-tamil ul,
+  .prose-tamil ol {
+    @apply mb-6 pl-6 space-y-2;
+  }
+  
+  .prose-tamil li {
+    @apply text-gray-700 mb-3;
+  }
+  
+  .prose-tamil strong {
+    @apply font-semibold text-gray-900;
+  }
+  
+  .prose-tamil a {
+    @apply text-blue-600 hover:text-blue-800 underline;
+  }
+  
+  .prose-tamil table {
+    @apply w-full border-collapse mb-6;
+  }
+  
+  .prose-tamil th,
+  .prose-tamil td {
+    @apply border border-gray-300 px-4 py-2 text-left;
+  }
+  
+  .prose-tamil th {
+    @apply bg-gray-100 font-semibold;
+  }
+  
+  .prose-tamil blockquote {
+    @apply border-l-4 border-gray-300 pl-4 italic text-gray-600 my-6;
+  }
+  
+  .prose-tamil code {
+    @apply bg-gray-100 px-1 py-0.5 rounded text-sm font-mono;
+  }
+  
+  .prose-tamil pre {
+    @apply bg-gray-100 p-4 rounded mb-6 overflow-x-auto;
+  }
+  
+  .prose-tamil pre code {
+    @apply bg-transparent p-0;
+  }
+  
+  .article-card {
+    @apply bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100;
+    overflow: visible;
+  }
+  
+  /* Ensure line-clamp elements have proper overflow handling */
+  .article-card .line-clamp-2,
+  .article-card .line-clamp-3 {
+    overflow: hidden !important;
+    position: relative;
+    padding-bottom: 0.25em;
+  }
+  
+  .article-card:hover {
+    @apply border-blue-200;
+  }
+  
+  /* Fix line-clamp for Tamil text - don't break words, prevent clipping */
+  .line-clamp-2,
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    word-break: keep-all !important;
+    overflow-wrap: normal !important;
+    word-wrap: normal !important;
+    hyphens: none !important;
+    line-height: 1.8 !important;
+    padding-bottom: 0.5em;
+    text-overflow: ellipsis;
+    position: relative;
+  }
+  
+  .line-clamp-2 {
+    -webkit-line-clamp: 2;
+    max-height: calc(1.8em * 2 + 0.5em);
+    min-height: calc(1.8em * 2);
+  }
+  
+  .line-clamp-3 {
+    -webkit-line-clamp: 3;
+    max-height: calc(1.8em * 3 + 0.5em);
+    min-height: calc(1.8em * 3);
+  }
+  
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium;
+  }
+  
+  .badge-finance {
+    @apply bg-blue-100 text-blue-800;
+  }
+  
+  .badge-schemes {
+    @apply bg-green-100 text-green-800;
+  }
+  
+  /* Ensure text is fully visible */
+  h1, h2, h3, h4, h5, h6 {
+    overflow: visible;
+    text-overflow: unset;
+    white-space: normal;
+    line-height: 1.4;
+    word-break: keep-all;
+    overflow-wrap: normal;
+    word-wrap: normal;
+    hyphens: none;
+  }
+  
+  /* Better line height for Tamil text */
+  .tamil-text {
+    line-height: 1.8;
+    letter-spacing: 0.01em;
+    word-break: keep-all !important;
+    overflow-wrap: normal !important;
+    word-wrap: normal !important;
+    hyphens: none !important;
+  }
+}
+
