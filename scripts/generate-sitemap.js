@@ -6,8 +6,7 @@
 const fs = require('fs')
 const path = require('path')
 
-// Get site URL from environment variable, fallback to tamilnidhi.com
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://tamilnidhi.com'
+const SITE_URL = "https://tamilnidhi.com"
 const contentDir = path.join(process.cwd(), 'content')
 
 // Get all article slugs
@@ -50,7 +49,7 @@ function generateSitemap() {
   // Add static pages
   staticPages.forEach(page => {
     xml += `  <url>
-    <loc>${siteUrl}${page.url}</loc>
+    <loc>${SITE_URL}${page.url}</loc>
     <lastmod>${now}</lastmod>
     <changefreq>${page.changefreq}</changefreq>
     <priority>${page.priority}</priority>
@@ -61,7 +60,7 @@ function generateSitemap() {
   // Add finance articles
   financeSlugs.forEach(slug => {
     xml += `  <url>
-    <loc>${siteUrl}/finance/${slug}</loc>
+    <loc>${SITE_URL}/finance/${slug}</loc>
     <lastmod>${now}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -72,7 +71,7 @@ function generateSitemap() {
   // Add schemes articles
   schemesSlugs.forEach(slug => {
     xml += `  <url>
-    <loc>${siteUrl}/schemes/${slug}</loc>
+    <loc>${SITE_URL}/schemes/${slug}</loc>
     <lastmod>${now}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
