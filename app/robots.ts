@@ -5,9 +5,9 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: ['/api/'],
+      disallow: ['/api/', '/_next/'],
     },
-    sitemap: 'https://tamilfinanceblog.com/sitemap.xml',
+    sitemap: 'https://tamilnidhi.com/sitemap.xml',
   }
 }
 
